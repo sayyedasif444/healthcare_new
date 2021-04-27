@@ -46,7 +46,7 @@ This file contains the common styles of this theme.
 		* Job.less
 		* Shop.less
 		* Blog.less
-		* Shortcode.less 
+		* Shortcode.less
 			* Alerts.less
 			* Buttons.less
 			* Blockquote.less
@@ -1508,8 +1508,8 @@ section > .container-fluid {
     min-height: auto !important;
   }
 }
-/*  
- * Extra.less 
+/*
+ * Extra.less
  * -----------------------------------------------
 */
 /* -------- Heading Style ---------- */
@@ -1705,7 +1705,7 @@ section > .container-fluid {
   }
 }
 .menuzord-brand img {
-  max-height: 38px;
+  max-height: 68px;
 }
 /* -------- Inner Header ---------- */
 .inner-header .title {
@@ -1996,6 +1996,7 @@ section > .container-fluid {
     margin: 0 !important;
     padding: 0 !important;
   }
+
   .vertical-nav .menuzord-brand img {
     max-height: 65px !important;
     padding: 10px;
@@ -4755,7 +4756,7 @@ blockquote p {
   display: block;
   position: relative;
   overflow: hidden;
-  width: 100%;
+
 }
 /* -------- Parallax ---------- */
 .parallax {

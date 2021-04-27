@@ -1,128 +1,142 @@
 @extends('layouts.app')
-@section('header_title')
-{{$events[0]->event_title}}
+@section('page-title')
+@php    echo ucwords($events[0]->event_title) @endphp
+
 @endsection
-@section('navigation')
- @include('layouts.nav')
+@section('meta-tags')
+
+@endsection
+@section('nav-section')
+<div class="header-nav">
+    <div class="header-nav-wrapper navbar-scrolltofixed bg-light">
+      <div class="container">
+        <nav id="menuzord" class="menuzord orange bg-light">
+          <ul class="menuzord-menu">
+            <li class=""><a href="/">Home</a> </li>
+            <li class=""><a href="/about-us">About</a> </li>
+            <li class=""><a href="/causes">Causes</a> </li>
+            <li class=""><a href="/events">Events</a> </li>
+            <li class=""><a href="/gallery">Gallery</a> </li>
+            <li class=""><a href="/blogs">Blogs</a> </li>
+            <li class=""><a href="/contact-us">Contact</a> </li>
+          </ul>
+          <ul class="pull-right hidden-sm hidden-xs">
+            <li>
+              <a class="btn btn-colored btn-flat btn-theme-colored mt-15 ajaxload-popup" href="ajax-load/donation-form.html" >Donate Now</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 @endsection
 @section('main-content')
-    <!-- end of header -->
-    <!-- .wpo-breadcumb-area start -->
-    <div class="wpo-breadcumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="wpo-breadcumb-wrap">
-                        <h2>Single Event</h2>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><span>Event</span></li>
-                            <li><span>{{$events[0]->event_title}}</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<!-- Section: inner-header -->
+  <section class="inner-header divider layer-overlay overlay-dark" data-bg-img="/assets/images/website_images/image1.jpg">
+    <div class="container pt-30 pb-30">
+      <!-- Section Content -->
+      <div class="section-content text-center">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h2 class="text-theme-colored font-36">Event Details 1</h2>
+            <ol class="breadcrumb text-center mt-10 white">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Pages</a></li>
+              <li class="active">@php    echo ucwords($events[0]->event_title) @endphp</li>
+            </ol>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- .wpo-breadcumb-area end -->
-    <!-- wpo-event-details-area start -->
-    <div class="wpo-event-details-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col col-md-8">
-                     <div class="wpo-event-item">
-                        <div class="wpo-event-img">
-                            <img src="/storage/uploads/{{$events[0]->image_path}}" alt="">
-                            <div class="thumb-text">
-                                <span id="nudate"></span>
-                                <span id="mdate"></span>
-                            </div>
-                        </div>
-                        <div class="wpo-event-details-text">
-                            <h2>{{$events[0]->event_title}}</h2>
-                             <div id="upper_desc">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.</div>
-                        </div>
-                        <div class="wpo-event-details-wrap">
-                            <div class="wpo-event-details-tab">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a data-toggle="tab" href="#Schedule">Event Schedule</a></li>
-                                    <li><a data-toggle="tab" href="#Contact">Contact Us</a></li>
-                                </ul>
-                            </div>
-                            <div class="wpo-event-details-content">
-                                <div class="tab-content">
-                                    <div id="Schedule" class="tab-pane active">
-                                        <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.</p>
-                                        <ul>
-                                            <li>The wise man therefore in these matters.</li>
-                                            <li>In a free hour, when our power of choice  and when nothing.</li>
-                                            <li>Else he  pains to avoid pains.</li>
-                                            <li>We denounce with righteous indignation dislike men. </li>
-                                            <li>Which is the same as saying through.</li>
-                                            <li>The wise man therefore always holds in these matters.</li>
-                                            <li>Power of choice  and when nothing.</li>
-                                            <li>Pains to avoid worse pains.</li>
-                                        </ul>
-                                    </div>
+  </section>
 
-                                    <div id="Contact" class="tab-pane">
-                                        <div class="event-contact">
-                                            <div class="wpo-donations-details">
-                                                <form method="post" class="contact-validation-active" id="commentform">
-                                                    <div class="row">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 form-group">
-                                                            <input type="text" class="form-control" name="name" id="cname" placeholder="Your Name">
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 form-group clearfix">
-                                                            <input type="email" class="form-control" name="email" id="cemail" placeholder="Your Email">
-                                                        </div>
-                                                        <div class="col-lg-12 col-12 form-group">
-                                                            <textarea class="form-control" name="note"  id="cnote" placeholder="Massage"></textarea>
-                                                        </div>
-                                                        <div class="submit-area col-lg-12 col-12">
-                                                            <button type="submit" class="theme-btn submit-btn">Submit Now</button>
-
-                                                        </div>
-                                                    </div>
-                                                    <p id="comment_err_msg"></p>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p id="event_id" style="display: none">{{$events[0]->event_id}}</p>
-                <div class="col col-md-4">
-                    <div class="wpo-blog-sidebar">
-
-                        <div class="widget recent-post-widget">
-                            <h3>Recent posts</h3>
-                            <div class="posts">
-                                @foreach ($allblogs as $item)
-                                <div class="post">
-                                    <div class="img-holder">
-                                        <img src="/storage/uploads/{{$item->image_path}}" alt>
-                                    </div>
-                                    <div class="details">
-                                        <h4><a href="/blogs/{{$item->blog_slug}}">{{$item->blog_title}}</a></h4>
-                                        <span class="date">{{$item->blog_date}}</span>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul>
+            <li>
+              <h5>Topics:</h5>
+              <p class="text-capitalize">{{ $events[0]->event_title }}</p>
+            </li>
+            <li>
+              <h5>Host:</h5>
+              <p>{{ $events[0]->event_host }}</p>
+            </li>
+            <li>
+              <h5>Location:</h5>
+              <p>{{ $events[0]->event_loc }}</p>
+            </li>
+            <li>
+              <h5>Event Date:</h5>
+              <p>{{ $events[0]->event_date }}</p>
+            </li>
+            <li>
+              <h5>Share:</h5>
+              <div class="styled-icons icon-sm icon-gray icon-circled">
+                <a href="#"><i class="fa fa-link"></i></a>
+              </div>
+            </li>
+          </ul>
         </div>
-    </div>
-    <!-- wpo-event-details-area end -->
+        <div class="col-md-8">
+          <img src="/storage/uploads/{{$events[0]->image_path}}" alt="" height="400px" width="100%">
+        </div>
+      </div>
+      <div class="row mt-60">
+        <div class="col-md-12">
+          <h4 class="mt-0">Event Description</h4>
+          <p>@php    echo $events[0]->event_desc @endphp</p>
+        </div>
 
-@endsection
-@section('script')
-    <script src="/assets/js/event-details.js"></script>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Registration Form -->
+  <section class="divider parallax layer-overlay overlay-light" data-stellar-background-ratio="0.5" data-bg-img="http://placehold.it/1920x1280">
+    <div class="container-fluid">
+      <div class="section-title mb-30">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h3 class="title text-theme-colored">Registration Form</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <form id="booking-form" class="booking-form bg-lightest-transparent p-50 mb-0">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <input type="text" placeholder="Enter Name" id="contact_name" name="contact_name" required="" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" placeholder="Enter Email" id="contact_email2" name="contact_email2" class="form-control" required="">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" placeholder="Enter Phone" id="contact_phone" name="contact_subject" class="form-control" required="">
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="form-group text-center">
+                  <button data-loading-text="Please wait..." class="btn btn-dark btn-theme-colored btn-sm btn-block mt-20 pt-10 pb-10" type="submit">Register now</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
 @endsection

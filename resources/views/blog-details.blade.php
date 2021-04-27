@@ -1,122 +1,178 @@
 @extends('layouts.app')
-@section('header_title')
-{{$blogs[0]->blog_title}}
+@section('page-title')
+@php    echo ucwords($blogs[0]->blog_title) @endphp
+
 @endsection
-@section('navigation')
- @include('layouts.nav')
+@section('meta-tags')
+
+@endsection
+@section('nav-section')
+<div class="header-nav">
+    <div class="header-nav-wrapper navbar-scrolltofixed bg-light">
+      <div class="container">
+        <nav id="menuzord" class="menuzord orange bg-light">
+          <ul class="menuzord-menu">
+            <li class=""><a href="/">Home</a> </li>
+            <li class=""><a href="/about-us">About</a> </li>
+            <li class=""><a href="/causes">Causes</a> </li>
+            <li class=""><a href="/events">Events</a> </li>
+            <li class=""><a href="/gallery">Gallery</a> </li>
+            <li class=""><a href="/blogs">Blogs</a> </li>
+            <li class=""><a href="/contact-us">Contact</a> </li>
+          </ul>
+          <ul class="pull-right hidden-sm hidden-xs">
+            <li>
+              <a class="btn btn-colored btn-flat btn-theme-colored mt-15 ajaxload-popup" href="ajax-load/donation-form.html" >Donate Now</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 @endsection
 @section('main-content')
-    <!-- end of header -->
-    <!-- .wpo-breadcumb-area start -->
-    <div class="wpo-breadcumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="wpo-breadcumb-wrap">
-                        <h2>Latest News</h2>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/blogs">Blogs</a></li>
-                            <li><span>{{$blogs[0]->blog_title}}</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <!-- Section: inner-header -->
+  <section class="inner-header divider layer-overlay overlay-dark" data-bg-img="/assets/images/website_images/image1.jpg">
+    <div class="container pt-30 pb-30">
+      <!-- Section Content -->
+      <div class="section-content text-center">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h2 class="text-theme-colored font-36">Blogs</h2>
+            <ol class="breadcrumb text-center mt-10 white">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Blogs</a></li>
+              <li class="active text-capitalize">{{$blogs[0]->blog_title}}</li>
+            </ol>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- .wpo-breadcumb-area end -->
-    <!-- start wpo-blog-single-section -->
-    <section class="wpo-blog-single-section section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col col-md-8">
-                    <div class="wpo-wpo-blog-content clearfix">
-                        <div class="post">
-                            <div class="entry-media">
-                                <img src="/storage/uploads/{{$blogs[0]->image_path}}" alt>
-                            </div>
-                            <ul class="entry-meta">
-                                <li><a ><img src="/assets/images/blog/admin.jpg" alt> By Admin</a></li>
-                                <li><a ><i class="ti-calendar"></i> {{$blogs[0]->blog_date}}</a></li>
-                                <li><a  id="likes_count"><i class="ti-heart"></i> <span>{{$blogs[0]->blog_likes}}</span></a></li>
-                            </ul>
-                            <h2 class="text-capitalize">{{$blogs[0]->blog_title}}</h2>
-                            <div id="blog_det"></div>
-                        </div>
-                    </div>
-                    <div class="comments-area">
-                        <div class="comments-section">
-                            <h3 class="comments-title">Comments</h3>
-                            <ol class="comments" id="comments_section">
-                                @foreach ($comments as $item)
-                                <li class="comment even thread-even depth-1" id="comment-1">
-                                    <div id="div-comment-1">
-                                        <div class="comment-theme">
-                                            <div class="comment-image"><img src="/assets/images/blog-details/comments-author/img-1.jpg" alt></div>
-                                        </div>
-                                        <div class="comment-main-area">
-                                            <div class="comment-wrapper">
-                                                <div class="comments-meta">
-                                                    <h4>{{$item->name}}<span class="comments-date">{{$item->blog_date}}</span></h4>
-                                                </div>
-                                                <div class="comment-area">
-                                                    <p>{{$item->message}}</p>
+  </section>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-
-                            </ol>
-                        </div> <!-- end comments-section -->
-                    </div> <!-- end comments-area -->
-                    <p id="blog_id" style="display: none">{{$blogs[0]->blog_id}}</p>
-                    <div class="comment-respond">
-                        <h3 class="comment-reply-title">Leave a Comment</h3>
-                        <form method="post" id="commentform" class="comment-form">
-                            <div class="form-inputs">
-                                <input placeholder="Name" type="text" id="comment_name">
-                                <input placeholder="Email" type="email" id="comment_email">
-                            </div>
-                            <div class="form-textarea">
-                                <textarea placeholder="Write Your Comments..." id="comment_msg"></textarea>
-                            </div>
-                            <div class="form-submit">
-                                <input id="submit" value="Reply" type="submit">
-                            </div>
-                            <p id="comment_err_msg"></p>
-                        </form>
+  <!-- Section: Blog -->
+  <section>
+    <div class="container mt-30 mb-30 pt-30 pb-30">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="blog-posts single-post">
+            <article class="post clearfix mb-0">
+              <div class="entry-header">
+                <div class="post-thumb thumb"> <img src="/storage/uploads/{{$blogs[0]->image_path}}" alt="" class="img-responsive img-fullwidth"> </div>
+                <div class="entry-meta meta-absolute text-center pl-15 pr-15">
+                  <div class="display-table">
+                    <div class="display-table-cell">
+                      <ul>
+                          <input type="hidden" id="blog_id" value="{{$blogs[0]->blog_id}}">
+                        <li><a class="text-white" href="#" id="likes_count"><i class="text-white fa fa-thumbs-o-up"></i> {{$blogs[0]->blog_likes}} <br> Likes</a></li>
+                        <li class="mt-20"><a class="text-white" href="#"><i class="text-white fa fa-comments-o"></i> {{$blogs[0]->comments}}<br> comments</a></li>
+                      </ul>
                     </div>
+                  </div>
                 </div>
-                <div class="col col-md-4">
-                    <div class="wpo-blog-sidebar">
+              </div>
+              <div class="entry-title pt-0">
+                <h3><a href="#">{{$blogs[0]->blog_title}}</a></h3>
+              </div>
+              <div class="entry-meta">
+                <ul class="list-inline">
+                  <li>Posted: <span class="text-theme-colored">{{$blogs[0]->blog_date}}</span></li>
+                  <li>By: <span class="text-theme-colored">Admin</span></li>
+                </ul>
+              </div>
+              <div class="entry-content mt-10">
+                @php
+                    echo $blogs[0]->blog_desc
+                @endphp
 
-                        <div class="widget recent-post-widget">
-                            <h3>Recent posts</h3>
-                            <div class="posts">
-                                @foreach ($allblogs as $item)
-                                <div class="post">
-                                    <div class="img-holder">
-                                        <img src="/storage/uploads/{{$item->image_path}}" alt>
-                                    </div>
-                                    <div class="details">
-                                        <h4><a href="/blogs/{{$item->blog_slug}}">{{$item->blog_title}}</a></h4>
-                                        <span class="date">{{$item->blog_date}}</span>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+            </article>
+            <div class="tagline p-0 pt-0 pl-20 mt-0 border-bottom  pb-20">
+              <div class="row">
+                <div class="mt-30 mb-0">
+                    <h5 class="pull-left mt-10 mr-20 text-theme-colored">Share:</h5>
+                    <ul class="styled-icons icon-circled m-0">
+                      <li><a href="#" data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>
+                      <li><a href="#" data-bg-color="#55ACEE"><i class="fa fa-twitter text-white"></i></a></li>
+                      <li><a href="#" data-bg-color="#A11312"><i class="fa fa-google-plus text-white"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
             </div>
-        </div> <!-- end container -->
-    </section>
-    <!-- end wpo-blog-single-section -->
+
+            <div class="comments-area">
+              <h4 class="comments-title">Comments</h4>
+              <ul class="comment-list" id="comments_section">
+                @foreach ($comments as $item)
+                <li>
+                    <div class="media comment-author bg-lighter p-20"> <a class="media-left" href="#"><img class="img-thumbnail" src="http://placehold.it/75x75" alt=""></a>
+                      <div class="media-body">
+                        <h5 class="media-heading comment-heading">{{$item->name}}</h5>
+                        <div class="comment-date">{{$item->blog_date}}</div>
+                        <p>{{$item->message}}</p>
+                      </div>
+                    </div>
+                </li>
+                @endforeach
+
+              </ul>
+            </div>
+            <div class="comment-box mt-20">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h5>Leave a Comment</h5>
+                  <div class="row">
+                    <form role="form" id="commentform">
+                      <div class="col-sm-6 pt-0 pb-0">
+                        <div class="form-group">
+                          <input type="text" class="form-control" required name="contact_name" id="comment_name" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" required class="form-control" name="contact_email2" id="comment_email" placeholder="Enter Email">
+                        </div>
+
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <textarea class="form-control" required name="contact_message2" id="comment_msg"  placeholder="Enter Message" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-dark btn-flat pull-right m-0" data-loading-text="Please wait...">Submit</button>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 mt-5" id="comment_err_msg"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="sidebar sidebar-right mt-sm-30">
+
+            <div class="widget">
+              <h5 class="widget-title line-bottom">Latest News</h5>
+              <div class="latest-posts">
+                @foreach ($allblogs as $item)
+                <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="/storage/uploads/{{$item->image_path}}" alt="" width="75px" height="75px"></a>
+                    <div class="post-right">
+                        <h5 class="post-title mt-0" title="{{$item->blog_title}}"><a href="/blogs/{{$item->blog_slug}}">@php echo substr($item->blog_title, 0, 20) . '...'  @endphp</a></h5>
+                        <p>@php echo substr($item->blog_desc, 0, 50) . '...' @endphp</p>
+                    </div>
+                </article>
+                @endforeach
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 @endsection
-@section('script')
-    <script src="/assets/js/blogs-details.js"></script>
+@section('script-section')
+<script src="/assets/js/blogs-details.js"></script>
 @endsection

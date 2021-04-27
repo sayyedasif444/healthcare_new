@@ -20,7 +20,11 @@ class indexController extends Controller
 {
     public function index(){
         $causes = cause::query()->leftjoin('cause_images', 'cause_images.cause_id', '=', 'causes.cause_id')->orderBy('causes.cause_id', 'DESC')->limit(5)->get();
-        return view('index')->with(['causes' => $causes]);
+        $events = DB::SELECT(DB::raw('SELECT DISTINCT(events.event_id), events.event_title,events.event_loc, events.event_desc, events.event_date, events.event_time, event_images.image_path, events.event_slug FROM event_images, events WHERE events.event_id = event_images.event_id ORDER BY events.event_id DESC LIMIT 5'));
+        $volunteers = DB::SELECT(DB::raw('SELECT * FROM volunteers ORDER BY v_id ASC'));
+        $blogs = DB::SELECT(DB::raw('SELECT DISTINCT(blogs.blog_id), blogs.blog_title, blogs.blog_desc, blogs.blog_date, blogs.blog_likes, blogs.comments, blog_images.image_path, blogs.blog_slug FROM blog_images, blogs WHERE blogs.blog_id = blog_images.blog_id ORDER BY blogs.blog_id DESC LIMIT 6'));
+
+        return view('index')->with(['causes' => $causes, 'events'=> $events, 'volunteers'=>$volunteers, 'blogs'=>$blogs]);
     }
     //--------------------cuases------------
     public function causesView($id){
@@ -64,26 +68,27 @@ class indexController extends Controller
     }
     public function aboutPage(){
         $causes = cause::query()->leftjoin('cause_images', 'cause_images.cause_id', '=', 'causes.cause_id')->orderBy('causes.cause_id', 'DESC')->limit(5)->get();
-        return view('about-us')->with(['causes' => $causes]);
+        $volunteers = DB::SELECT(DB::raw('SELECT * FROM volunteers ORDER BY v_id ASC'));
+
+        return view('about-us')->with(['causes' => $causes, 'volunteers'=> $volunteers]);
 
     }
     public function causePageView(){
+        $allBlogs = blog::query()->leftjoin('blog_images', 'blog_images.blog_id', '=', 'blogs.blog_id')->orderBy('blogs.blog_id', 'desc')->take(7)->get();
         $causes = cause::query()->leftjoin('cause_images', 'cause_images.cause_id', '=', 'causes.cause_id')->orderBy('causes.cause_id', 'DESC')->get();
-        return view('causes')->with(['causes' => $causes]);
+        return view('causes')->with(['causes' => $causes, 'blogs'=>$allBlogs]);
 
     }
 
     //-------------events----------------------
     public function eventsView(){
-        $events = DB::SELECT(DB::raw('SELECT DISTINCT(events.event_id), events.event_title, events.event_desc, events.event_date, events.event_time, event_images.image_path, events.event_slug FROM event_images, events WHERE events.event_id = event_images.event_id ORDER BY events.event_id DESC LIMIT 3'));
+        $events = DB::SELECT(DB::raw('SELECT DISTINCT(events.event_id), events.event_title, events.event_desc, events.event_date, events.event_time, event_images.image_path, events.event_slug FROM event_images, events WHERE events.event_id = event_images.event_id ORDER BY events.event_id DESC LIMIT 5'));
         return $events;
     }
     public function eventPageView(){
         $event = event::query()->leftjoin('event_images', 'event_images.event_id', '=', 'events.event_id')->orderBy('events.event_id', 'DESC')->get();
-        return response()->json([
-            'statuscode' => 200,
-            'data' => $event
-        ], 200);
+        return view('events')->with(['events' => $event]);
+
 
     }
 
@@ -191,8 +196,10 @@ class indexController extends Controller
         ], 200);
     }
     public function blogssideView(){
-        $allBlogs = blog::query()->leftjoin('blog_images', 'blog_images.blog_id', '=', 'blogs.blog_id')->orderBy('blogs.blog_id', 'desc')->take(7)->get();
-        return view('blog')->with(['allblogs'=>$allBlogs]);
+        $allBlogs = blog::query()->leftjoin('blog_images', 'blog_images.blog_id', '=', 'blogs.blog_id')->orderBy('blogs.blog_id', 'desc')->get();
+        $blogs = blog::query()->leftjoin('blog_images', 'blog_images.blog_id', '=', 'blogs.blog_id')->orderBy('blogs.blog_id', 'desc')->take(7)->get();
+
+        return view('blogs')->with(['blogs'=>$blogs, 'allblogs'=>$allBlogs]);
     }
     public function blogsPageView(){
         $blogs = DB::SELECT(DB::raw('SELECT DISTINCT(blogs.blog_id), blogs.blog_title, blogs.blog_desc, blogs.blog_date, blog_images.image_path, blogs.blog_slug FROM blog_images, blogs WHERE blogs.blog_id = blog_images.blog_id ORDER BY blogs.blog_id DESC'));

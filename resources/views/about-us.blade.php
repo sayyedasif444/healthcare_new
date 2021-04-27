@@ -1,350 +1,249 @@
 @extends('layouts.app')
-@section('header_title')
+@section('page-title')
     About Us
 @endsection
-@section('navigation')
- @include('layouts.nav')
+@section('meta-tags')
+
+@endsection
+@section('nav-section')
+<div class="header-nav">
+    <div class="header-nav-wrapper navbar-scrolltofixed bg-light">
+      <div class="container">
+        <nav id="menuzord" class="menuzord orange bg-light">
+          <ul class="menuzord-menu">
+            <li class=""><a href="/">Home</a> </li>
+            <li class="active"><a href="/about-us">About</a> </li>
+            <li class=""><a href="/causes">Causes</a> </li>
+            <li class=""><a href="/events">Events</a> </li>
+            <li class=""><a href="/gallery">Gallery</a> </li>
+            <li class=""><a href="/blogs">Blogs</a> </li>
+            <li class=""><a href="/contact-us">Contact</a> </li>
+          </ul>
+          <ul class="pull-right hidden-sm hidden-xs">
+            <li>
+              <a class="btn btn-colored btn-flat btn-theme-colored mt-15 ajaxload-popup" href="ajax-load/donation-form.html" >Donate Now</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 @endsection
 @section('main-content')
-        <!-- end of header -->
-        <!-- .wpo-breadcumb-area start -->
-        <div class="wpo-breadcumb-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="wpo-breadcumb-wrap">
-                            <h2>About Us</h2>
-                            <ul>
-                                <li><a href="/">Home</a></li>
-                                <li><span>About</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- Section: inner-header -->
+<section class="inner-header divider layer-overlay overlay-dark" data-bg-img="/assets/images/website_images/image1.jpg">
+    <div class="container pt-30 pb-30">
+      <!-- Section Content -->
+      <div class="section-content text-center">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h2 class="text-theme-colored font-36">About</h2>
+            <ol class="breadcrumb text-center mt-10 white">
+              <li><a href="#">Home</a></li>
+              <li class="active">About</li>
+            </ol>
+          </div>
         </div>
-        <!-- .wpo-breadcumb-area end -->
-        <!-- wpo-about-video-area start -->
-        <div class="wpo-about-video-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="wpo-about-video-item">
-                            <div class="wpo-about-video-img">
-                                <img src="assets/images/about-vedio.jpg" alt="">
-                                <div class="entry-media video-holder">
-                                    <a href="https://www.youtube.com/embed/iSbzh0r9IV4?autoplay=1" class="video-btn" data-type="iframe">
-                                        <i class=""></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <h2>See what we do for the <span>poor people and the children</span></h2>
-                        </div>
-                    </div>
-                </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: About -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-7">
+          <div class="image-carousel">
+            <div class="item">
+              <div class="thumb">
+                <img src="http://placehold.it/1920x1280" alt="">
+              </div>
             </div>
-        </div>
-        <!-- wpo-about-video-area end -->
-        <!-- wpo-mission-area start -->
-        <div class="wpo-mission-area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="wpo-section-title">
-                            <span>What We Do?</span>
-                            <h2>We Are In A Mission To Help The Helpless</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-mission-wrap">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 col-12 custom-grid">
-                            <div class="wpo-mission-item">
-                                <div class="wpo-mission-icon-5">
-                                    <i class="fi flaticon-care"></i>
-                                </div>
-                                <div class="wpo-mission-content">
-                                    <h2>Healthcare Facilities</h2>
-                                    <p>High Dependency Unit(HDU), Diagnosis facilities, Intensive Care units(ICU) at minimal cost.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12 custom-grid">
-                            <div class="wpo-mission-item">
-                                <div class="wpo-mission-icon-6">
-                                    <i class="fi flaticon-food-and-restaurant"></i>
-                                </div>
-                                <div class="wpo-mission-content">
-                                    <h2>Medical Assistance</h2>
-                                    <p>Guides patients to take a perfect healthcare facilities with minimal costs.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12 custom-grid">
-                            <div class="wpo-mission-item">
-                                <div class="wpo-mission-icon-7">
-                                    <i class="fi flaticon-call"></i>
-                                </div>
-                                <div class="wpo-mission-content">
-                                    <h2>Consultation</h2>
-                                    <p>Provides consultacy support to get financial aid from private and government for BPL patients.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12 custom-grid">
-                            <div class="wpo-mission-item">
-                                <div class="wpo-mission-icon-8">
-                                    <i class="fi flaticon-book"></i>
-                                </div>
-                                <div class="wpo-mission-content">
-                                    <h2>Education Assistance</h2>
-                                    <p>Provides consultacy support to get financial aid from private and government for BPL patients.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="item">
+              <div class="thumb">
+                <img src="http://placehold.it/1920x1280" alt="">
+              </div>
             </div>
+            <div class="item">
+              <div class="thumb">
+                <img src="http://placehold.it/1920x1280" alt="">
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- wpo-mission-area end -->
+        <div class="col-sm-12 col-md-5">
+          <h3 class="text-theme-colored text-uppercase mt-0">About Us</h3>
+          <p>Lorem ipsum dolor sit amet, consectet adipisicing elit. Quas, veniam nobis minima. Delectus, dolorem rerum, eos nemo dolore amet quis, eum debiti modi voluptatibus ducimus molestiae laborum itaque quam maxime dolor amit laboriosam aperiam exercitationem.Cos nemo dolore amet quis, eum debiti modi voluptatibus ducimus molestiae laborum itaque quam maxime dolor amit laboriosam aperiam exercitationem. Amit dolor sit.</p>
+          <div class="row mt-30 mb-30 ml-20">
+           <div class="col-xs-6">
+            <ul class="mt-10">
+              <li class="mb-10"><i class="fa fa-check-circle text-theme-colored"></i>&emsp;Education</li>
+              <li class="mb-10"><i class="fa fa-check-circle text-theme-colored"></i>&emsp;Community</li>
+              <li class="mb-10"><i class="fa fa-check-circle text-theme-colored"></i>&emsp;Education</li>
+            </ul>
+           </div>
+           <div class="col-xs-6">
+            <ul class="mt-10">
+              <li class="mb-10"><i class="fa fa-check-circle text-theme-colored"></i>&emsp;Education</li>
+              <li class="mb-10"><i class="fa fa-check-circle text-theme-colored"></i>&emsp;Teamwork</li>
+              <li class="mb-10"><i class="fa fa-check-circle text-theme-colored"></i>&emsp;Creativity</li>
+            </ul>
+           </div>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectet adipisicing elit. Quas, veniam nobis minima. Delectus, dolorem rerum, eos nemo dolore amet quis, eum debiti modi voluptatibus ducimus molestiae laborum itaque quam maxime dolor amit laboriosam aperiam exercitationem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider: Emergency Services -->
+  <section class="divider parallax layer-overlay overlay-deep" data-stellar-background-ratio="0.2"  data-bg-img="/assets/images/website_images/helpusbg.jpg">
+    <div class="container">
+      <div class="section-content text-center">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="mt-0">How you can help us</h3>
+            <h2>Just call at <span class="text-theme-colored">+(91) 8888 4422 02</span> to make a donation</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Causes -->
+  <section>
+    <div class="container pb-80">
+      <div class="section-title text-center">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h3 class="text-uppercase mt-0">Our Causes</h3>
+            <div class="title-icon">
+              <i class="flaticon-charity-hand-holding-a-heart"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mtli-row-clearfix">
+          @foreach ($causes as $item)
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="causes bg-lighter box-hover-effect effect1 maxwidth500 mb-sm-30">
+              <div class="thumb">
+                <img class="img-fullwidth" alt="" src="/storage/uploads/{{$item->image_path}}">
+              </div>
+              <div class="progress-item mt-0">
+                <div class="progress mb-0">
+                  <div class="progress-bar" data-percent="84"></div>
+                </div>
+              </div>
+              <div class="causes-details clearfix border-bottom p-15 pt-10">
+                <h5 class="text-capitalize"><a href="/causes/{{$item->cause_slug}}">{{$item->cause_title}}</a></h5>
+                <p >@php
+                    $abc = $item->cause_desc;
+                    echo substr($abc, 0, 70) . '...';
+                @endphp</p>
+                <ul class="list-inline clearfix mt-20">
+                  <li class="pull-left pr-0">Raised: $1890</li>
+                  <li class="text-theme-colored pull-right pr-0">Goal: $2500</li>
+                </ul>
+                <div class="mt-10">
+                 <a class="btn btn-dark btn-theme-colored btn-flat btn-sm pull-left mt-10" href="#">Donate</a>
+                 <div class="pull-right mt-15"><i class="fa fa-heart-o text-theme-colored"></i> 89 Donors</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
 
 
+      </div>
+    </div>
+  </section>
 
-        <!-- wpo-about-area start -->
-        <div class="wpo-about-area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 colsm-12">
-                        <div class="wpo-about-text">
-                            <div class="wpo-section-title">
-                                <span>Our History</span>
-                                <h2>A Step Forward To Build a Better World.</h2>
-                            </div>
-                            <p class="text-justify">"The Healthcare Foundation" established in the year 2010 is a charatible trust started  by <strong>Mr. Shaikh Muhammed</strong> with the aim of providing better healthcare facilities at minimum cost to marginilised communities and to BPL citizens.  </p>
-                            <p class="text-justify">"The Healthcare Foundation" and 3AM Medicorum have a successful partnership over the years, </p>
-                            <p class="text-justify">The cardic, neuro and critical emergency are managed by professional trained doctors of 3AM medicorum ICU and is supported by "The Healthcare Foundation"</p>
-                            <div class="btns">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 colsm-12">
-                        <div class="wpo-about-img-3">
-                            <img src="assets/images/history.png" alt="">
-                        </div>
-                    </div>
-                </div>
+  <!-- divider: Became a Volunteers -->
+  <section class="divider parallax layer-overlay overlay-deep" data-stellar-background-ratio="0.5" data-bg-img="/assets/images/website_images/volunteers.jpg">
+    <div class="container">
+      <div class="section-content">
+        <div class="row">
+          <div class="col-md-7">
+            <h3 class="line-bottom">Became a Volunteer</h3>
+            <p class="mt-30 mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, et placeat ipsam, officiis fugiat doloremque ducimus tempore aliquid nihil soluta, quia similique veritatis! Quidem, repellendus exit placeat ipsam, officiis fugiat doloremque ducimus tempore aliquid nihil soluta, quia similique veritatis.</p>
+            <a class="btn btn-dark btn-theme-colored btn-lg btn-flat pull-left pl-30 pr-30" href="#">Join Us</a>
+          </div>
+          <div class="col-md-5">
+            <div class="fluid-video-wrapper">
+              <iframe src="//player.vimeo.com/video/22029657?title=0&amp;byline=0&amp;portrait=0" width="640" height="360"  title="Creative" allowfullscreen></iframe>
             </div>
+          </div>
         </div>
-        <div class="wpo-about-area-2 section-padding">
-            <div class="container">
-                <div class="row">
+      </div>
+    </div>
+  </section>
 
-                    <div class="col-lg-5 col-md-6 colsm-12" style="float:right">
-                        <div class="wpo-about-text-2">
-                            <div class="wpo-section-title">
-                                <span>Our Vision</span>
-                                <h2>We See a Carefree World</h2>
-                            </div>
-                            <p class="text-justify">Healthcare is the basic right and necessity of every individual. "The Healthcare Foundation" aims to provide high quality healthcare services at minimal rates especially to below poverty line (BPL) patients and anyone who needs it. "The Healthcare Foundation" helps to eliminate the stigma that only people with power can have better healthcare and lifestyle. </p>
-                            <p class="text-justify">Our vision is to reach every citizen of India to change their beliefs towards health and to help them adapt healthy lifestyle with proper healthcare. We at "The Healthcare Foundation" require your support to overcome difficulties in building the nation of healthy individuals. </p>
-                            <div class="btns">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-6 colsm-12" style="float: left">
-                        <div class="wpo-about-img-2">
-                            <img src="assets/images/vision.png" alt="">
-                        </div>
-                    </div>
-                </div>
+  <!-- Section: Volunteer -->
+  <section>
+    <div class="container">
+      <div class="section-title text-center">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h3 class="text-uppercase mt-0">Our Volunteers</h3>
+            <div class="title-icon">
+              <i class="flaticon-charity-hand-holding-a-heart"></i>
             </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
+          </div>
         </div>
-        <div class="wpo-about-area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 colsm-12">
-                        <div class="wpo-about-text">
-                            <div class="wpo-section-title">
-                                <span>Our Mission</span>
-                                <h2>We Are In A Mission To Help The Helpless</h2>
-                            </div>
-                            <p class="text-justify">In the last decade We have served ample amount of people not only by providing healthcare facilities but also by providing education assistance, health awareness programmes and others. We are partnering with different sectors of healthcare system to provide the best facilities at lowest rates. we have setup critical care unit, diagnostics, intensive care unit at government and semi government premises to help people enjoy private heathcare facilities at minimal rates.</p>
-                            <p class="text-justify">"The Healthcare Foundation’s"  upcoming project at hadapsar, PUNE  will provide assistance to cancer and critical patients at reasonable cost. Our mission is to reach everyone who needs or requires our assistance. Their smiles and prayers kept us a float for a decade and your contributions provided us the confidence to challenge the impossibilities</p>
-                            <div class="btns">
-                            </div>
+      </div>
+      <div class="section-content">
+        <div class="row multi-row-clearfix">
+          <div class="col-md-12 text-left sm-text-center">
+            <div class="volunteers-carousel owl-nav-top" data-dots="true">
+                @foreach ($volunteers as $item)
+                <div class="item">
+                    <div class="volunteer maxwidth400">
+                      <div class="thumb"><img alt="" src="/storage/uploads/{{$item->v_img}}" class="img-fullwidth"></div>
+                      <div class="overlay">
+                        <div class="content text-center">
+                          <h4 class="author mb-0"><a  class="text-white">{{$item->v_name}}</a></h4>
+                          <h6 class="title text-black font-14 mt-5 mb-15">{{$item->v_post}}</h6>
+                          <ul class="styled-icons icon-gray icon-sm mt-10">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                          </ul>
                         </div>
+                      </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 colsm-12">
-                        <div class="wpo-about-img-3">
-                            <img src="assets/images/mission.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- wpo-about-area end -->
-        <div class="wpo-team-area section-padding">
-            <div class="container ">
-                <div class="row">
-                    <div class="col-12 pb-5">
-                        <div class="wpo-section-title">
-                            <span>Meet Our Team</span>
-                            <h2>Our Expert Volunteer</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                        <div class="wpo-team-wrap">
-                            <div class="wpo-team-img">
-                                <img src="assets/images/team/team-1.jpg" alt="">
-                            </div>
-                            <div class="wpo-team-content">
-                                <div class="wpo-team-text-sub">
-                                    <h2>Smith Tomkin</h2>
-                                    <span>CEO & Founder</span>
-                                    <ul>
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                        <li><a href="#"><i class="ti-google"></i></a></li>
-                                        <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                        <div class="wpo-team-wrap">
-                            <div class="wpo-team-img">
-                                <img src="assets/images/team/team-2.jpg" alt="">
-                            </div>
-                            <div class="wpo-team-content">
-                                <div class="wpo-team-text-sub">
-                                    <h2>Robert Honey</h2>
-                                    <span>Volunteer</span>
-                                    <ul>
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                        <li><a href="#"><i class="ti-google"></i></a></li>
-                                        <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 custom-grid">
-                        <div class="wpo-team-wrap">
-                            <div class="wpo-team-img">
-                                <img src="assets/images/team/team-3.jpg" alt="">
-                            </div>
-                            <div class="wpo-team-content">
-                                <div class="wpo-team-text-sub">
-                                    <h2>Juliya Jossoy</h2>
-                                    <span>Volunteer</span>
-                                    <ul>
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                        <li><a href="#"><i class="ti-google"></i></a></li>
-                                        <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <!-- .wpo-counter-area start -->
-        <div class="wpo-counter-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="wpo-counter-grids">
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="6200">00</span>+</h2>
-                                </div>
-                                <p>Donation</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="80">00</span>+</h2>
-                                </div>
-                                <p>Fund Raised</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="245">00</span>+</h2>
-                                </div>
-                                <p>Volunteers</p>
-                            </div>
-                            <div class="grid">
-                                <div>
-                                    <h2><span class="odometer" data-count="605">00</span>+</h2>
-                                </div>
-                                <p>Projects</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .wpo-counter-area end -->
+                  </div>
+                @endforeach
 
-        <!-- wpo-case-area start -->
-        <div class="wpo-case-area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="wpo-section-title">
-                            <span>Our Causes</span>
-                            <h2>Popular Causes What You Should Know</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-case-wrap">
-                    <div class="wpo-case-slider">
-                        @foreach ($causes as $item)
-                        <div class="wpo-case-single">
-                            <div class="wpo-case-item">
-                                <div class="wpo-case-img">
-                                    <img src="/storage/uploads/{{$item->image_path}}" alt="">
-                                </div>
-                                <div class="wpo-case-content">
-                                    <div class="wpo-case-text-top">
-                                        <h2>{{$item->cause_title}}</h2>
-                                        <div class="progress-section">
-                                            <div class="process">
-                                                <div class="progress">
-                                                    <div class="progress-bar">
-                                                        <div class="progress-value"><span>65.5</span>%</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
-                                        </ul>
-                                    </div>
-                                    <div class="case-btn">
-                                        <ul>
-                                            <li><a href="/causes/{{$item->cause_slug}}">Learn More</a></li>
-                                            <li><a href="/donate">Donate Now</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
+
             </div>
+          </div>
         </div>
-        <!-- wpo-case-area end -->
-@endsection
-@section('script')
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider: Partners & Donors -->
+  <section class="divider parallax layer-overlay overlay-deep" data-stellar-background-ratio="0.5" data-bg-img="/assets/images/website_images/partners.jpg">
+    <div class="container pt-30 pb-30">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="clients-logo carousel">
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+            <div class="item"> <a href="#"><img src="http://placehold.it/150x120" alt=""></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 @endsection

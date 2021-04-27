@@ -8,3 +8,6 @@ theme. But don't modify style-main.css file.
 */
 
 /* Your custom css codes start here: */
+#new_section .owl-carousel .owl-item img {
+    width: auto; height: 210px;
+}

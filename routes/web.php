@@ -32,10 +32,8 @@ Route::post('/causesComment', 'App\Http\Controllers\indexController@causesCommen
 
 
 //-------------events-----------
-Route::get('/events', function () {
-    return view('events');
-});
-Route::get('/eventsPageView', 'App\Http\Controllers\indexController@eventPageView');
+
+Route::get('/events', 'App\Http\Controllers\indexController@eventPageView');
 Route::get('/eventsView', 'App\Http\Controllers\indexController@eventsView');
 Route::get('/events/{id}', 'App\Http\Controllers\indexController@eventsViewId');
 Route::post('/eventsData', 'App\Http\Controllers\indexController@eventsData');
@@ -57,7 +55,7 @@ Route::get('/blogsPageView', 'App\Http\Controllers\indexController@blogsPageView
 
 
 //-----------contact page------
-Route::get('/contact', function () {
+Route::get('/contact-us', function () {
     return view('contact');
 });
 
